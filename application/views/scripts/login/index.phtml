@@ -1,0 +1,7 @@
+<fieldset id="loginFormWrapper">
+    <legend>Login</legend>
+    <?php if (isset($this->errorString)): ?>
+    <p class="error"><?php echo $this->errorString; ?></p>
+    <?php endif; ?>
+    <?php echo $this->form; ?>
+</fieldset>

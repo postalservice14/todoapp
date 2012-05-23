@@ -71,3 +71,23 @@ a.saveChanges {
     font-size: 0.6em;
     padding-left: 9px;
 }
+
+#loginFormWrapper {
+    text-align: center;
+    width: 240px;
+    margin: 0 auto;
+}
+
+#loginFormWrapper label {
+    text-align: left;
+}
+
+#loginFormWrapper ul.errors li {
+    list-style: none;
+    color: #953B39;
+
+}
+
+#loginFormWrapper p.error {
+    color: #953B39;
+}

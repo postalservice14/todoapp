@@ -1,5 +1,8 @@
 <footer class="footer">
     <p class="pull-right">
+        <?php if (Zend_Auth::getInstance()->hasIdentity()): ?>
+        <a href="<?php echo $this->baseUrl('/login/logout'); ?>">Logout</a> |
+        <?php endif;?>
         <a href="#">Back to top</a>
     </p>
 </footer>

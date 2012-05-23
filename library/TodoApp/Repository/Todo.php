@@ -11,7 +11,7 @@ class Todo extends EntityRepository
      */
     public function findThemAll()
     {
-        $statement = 'SELECT t FROM TodoApp\Entity\Todo t ORDER BY t._id DESC';
+        $statement = 'SELECT t FROM TodoApp\Entity\Todo t ORDER BY t._position ASC';
         return $this->_em->createQuery($statement)->getResult();
     }
 }

@@ -2,11 +2,15 @@
 
 class TodoController extends Zend_Controller_Action
 {
+    public function preDispatch()
+    {
+        if (!Zend_Auth::getInstance()->hasIdentity()) {
+            $this->_helper->redirector('index','login');
+        }
+    }
 
     /**
      * @var Doctrine\ORM\EntityManager
-     *
-     *
      */
     protected $_em = null;
 
@@ -73,10 +77,10 @@ class TodoController extends Zend_Controller_Action
             $addTodoForm = new Application_Form_Todo();
 
             if ($addTodoForm->isValid($this->getRequest()->getParams())) {
-                $maxPosition = $this->_em->createQuery("SELECT MAX(position)+1 AS maxPosition FROM todo")->getResult();
+                $maxPosition = $this->_em->createQuery("SELECT MAX(t._position)+1 AS maxPosition FROM \TodoApp\Entity\Todo t")->getResult();
                 $position = 1;
-                if ($maxPosition) {
-                    $position = $position->maxPosition;
+                if (count($maxPosition) > 0) {
+                    $position = $maxPosition[0]['maxPosition'];
                 }
 
                 $values = $addTodoForm->getValues();
@@ -114,6 +118,7 @@ class TodoController extends Zend_Controller_Action
     public function rearrangeAction()
     {
         foreach ($this->getRequest()->getParam('positions') as $k => $id) {
+            echo $k.':'.$id;
             $todo = $this->_em->getRepository("\TodoApp\Entity\Todo")->find($id);
             $todo->setPosition($k);
             try {
