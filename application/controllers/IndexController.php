@@ -23,7 +23,10 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $todos = $this->_em->getRepository("\TodoApp\Entity\Todo")->findThemAll();
+        $username = Zend_Auth::getInstance()->getIdentity();
+        $user = $this->_em->getRepository("\TodoApp\Entity\User")->findOneBy(array('_username' => $username));
+
+        $todos = $this->_em->getRepository("\TodoApp\Entity\Todo")->findThemAll($user->getId());
         $this->view->todos = $todos;
     }
 

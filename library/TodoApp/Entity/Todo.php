@@ -18,6 +18,12 @@ class Todo
     private $_id;
 
     /**
+     * @ORM\Column(type="integer", name="user_id")
+     * @var int
+     */
+    private $_userId;
+
+    /**
      * @ORM\Column(type="integer", name="position")
      */
     private $_position;
@@ -88,5 +94,21 @@ class Todo
     public function getId()
     {
         return $this->_id;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId($userId)
+    {
+        $this->_userId = $userId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->_userId;
     }
 }

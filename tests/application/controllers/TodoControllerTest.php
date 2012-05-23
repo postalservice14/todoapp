@@ -9,23 +9,6 @@ class TodoControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         parent::setUp();
     }
 
-    public function testIndexAction()
-    {
-        $params = array('action' => 'index', 'controller' => 'Todo', 'module' => 'default');
-        $urlParams = $this->urlizeOptions($params);
-        $url = $this->url($urlParams);
-        $this->dispatch($url);
-        
-        // assertions
-        $this->assertModule($urlParams['module']);
-        $this->assertController($urlParams['controller']);
-        $this->assertAction($urlParams['action']);
-        $this->assertQueryContentContains(
-            'div#view-content p',
-            'View script for controller <b>' . $params['controller'] . '</b> and script/action name <b>' . $params['action'] . '</b>'
-            );
-    }
-
     public function testSaveAction()
     {
         $params = array('action' => 'save', 'controller' => 'Todo', 'module' => 'default');
@@ -37,10 +20,6 @@ class TodoControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $this->assertModule($urlParams['module']);
         $this->assertController($urlParams['controller']);
         $this->assertAction($urlParams['action']);
-        $this->assertQueryContentContains(
-            'div#view-content p',
-            'View script for controller <b>' . $params['controller'] . '</b> and script/action name <b>' . $params['action'] . '</b>'
-            );
     }
 
     public function testDeleteAction()
@@ -54,10 +33,6 @@ class TodoControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $this->assertModule($urlParams['module']);
         $this->assertController($urlParams['controller']);
         $this->assertAction($urlParams['action']);
-        $this->assertQueryContentContains(
-            'div#view-content p',
-            'View script for controller <b>' . $params['controller'] . '</b> and script/action name <b>' . $params['action'] . '</b>'
-            );
     }
 
     public function testAddAction()
@@ -71,10 +46,6 @@ class TodoControllerTest extends Zend_Test_PHPUnit_ControllerTestCase
         $this->assertModule($urlParams['module']);
         $this->assertController($urlParams['controller']);
         $this->assertAction($urlParams['action']);
-        $this->assertQueryContentContains(
-            'div#view-content p',
-            'View script for controller <b>' . $params['controller'] . '</b> and script/action name <b>' . $params['action'] . '</b>'
-            );
     }
 
 

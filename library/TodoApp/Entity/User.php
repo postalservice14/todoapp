@@ -18,8 +18,8 @@ class User
     private $_id;
 
     /**
-     * @ORM\Column(type="integer", name="username")
-     * @var int
+     * @ORM\Column(type="string", name="username")
+     * @var string
      */
     private $_username;
 

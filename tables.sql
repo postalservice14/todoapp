@@ -55,14 +55,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1, 'johnk', 'test');
+(1, 'johnk', 'test'),
+(2, 'demo', 'demo');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

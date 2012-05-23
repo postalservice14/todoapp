@@ -83,10 +83,14 @@ class TodoController extends Zend_Controller_Action
                     $position = $maxPosition[0]['maxPosition'];
                 }
 
+                $username = Zend_Auth::getInstance()->getIdentity();
+                $user = $this->_em->getRepository("\TodoApp\Entity\User")->findOneBy(array('_username' => $username));
+
                 $values = $addTodoForm->getValues();
                 $newTodo = new \TodoApp\Entity\Todo();
                 $newTodo->setName($values['name']);
                 $newTodo->setPosition($position);
+                $newTodo->setUserId($user->getId());
 
                 try {
                     $this->_em->persist($newTodo);
