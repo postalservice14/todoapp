@@ -21,6 +21,7 @@
           <actionMethod actionName="save"/>
           <actionMethod actionName="delete"/>
           <actionMethod actionName="add"/>
+          <actionMethod actionName="rearrange"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
@@ -64,6 +65,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Todo">
             <viewScriptFile forActionName="add"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Todo">
+            <viewScriptFile forActionName="rearrange"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

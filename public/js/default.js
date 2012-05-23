@@ -3,12 +3,24 @@ $(function() {
         axis:   'y',
         containment: 'window',
         update: function() {
+            var arr = $('.todos').sortable('toArray');
 
+            arr = $.map(arr, function(val, key) {
+                return val.replace('todo-','');
+            });
+
+            $.ajax('/todoapp/todo/rearrange',{
+                data: {
+                    positions: arr
+                },
+                type: 'GET',
+                cache: false
+            });
         }
     });
 
     $('#addTodoBtn').click(function(e) {
-        $.post('/todo/add', {
+        $.post('/todoapp/todo/add', {
             name: 'New Todo Item'
         },
         function(data) {
@@ -24,7 +36,7 @@ $(document).on('click', '.todo a.delete', function (e) {
     var currentTodo = $(this).closest('.todo');
 
     if (confirm('Are you sure you want to delete this todo?')) {
-        $.get('/todo/delete',{
+        $.get('/todoapp/todo/delete',{
                 id: currentTodo.attr('id').replace('todo-','')
             },
             function(msg) {
@@ -66,7 +78,7 @@ $(document).on('click', '.todo a.saveChanges', function(e) {
 
     var text = currentTodo.find("input[type=text]").val();
 
-    $.post("/todo/save", {
+    $.post("/todoapp/todo/save", {
         id: currentTodo.attr('id').replace('todo-',''),
         name: text
     });

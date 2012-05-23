@@ -19,7 +19,6 @@ class Todo
 
     /**
      * @ORM\Column(type="integer", name="position")
-     * @var int
      */
     private $_position;
 

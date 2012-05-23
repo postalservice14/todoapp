@@ -16,24 +16,39 @@ ul.todos li {
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
+    height: 27px;
 }
 
 .todo .text {
     color: #555;
     font-size: 1.4em;
+    margin-top: 2px;
 }
 
 .todo .actions {
     position: absolute;
     right: 7px;
-    top: 3px;
+    top: 7px;
+}
+
+.todo input {
+    border: solid 1px #ccc;
+    color: #666;
+    font-size: 0.75em;
+    padding: 3px 4px;
+    width: 230px;
+    margin: -2px 0 0 0;
+}
+
+a.saveChanges {
+    color: #468847;
 }
 
 .todo .actions a.edit {
     color: #C09853;
 }
 
-.todo .actions a.delete {
+.todo .actions a.delete, a.discardChanges {
     color: #B94A48;
 }
 
@@ -49,4 +64,10 @@ ul.todos li {
 
 #addTodoBtn {
     margin: 20px auto;
+}
+
+.editTodo {
+    display: inline;
+    font-size: 0.6em;
+    padding-left: 9px;
 }
