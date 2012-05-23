@@ -1,0 +1,52 @@
+ul.todos {
+    margin: 0 auto;
+    width: 500px;
+    position: relative;
+}
+
+ul.todos li {
+    background-color: #f9f9f9;
+    border: solid 1px #eee;
+    list-style: none;
+    margin: 6px;
+    padding: 6px 9px;
+    position: relative;
+    cursor: n-resize;
+    text-shadow: 1px 1px 0 #fff;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+.todo .text {
+    color: #555;
+    font-size: 1.4em;
+}
+
+.todo .actions {
+    position: absolute;
+    right: 7px;
+    top: 3px;
+}
+
+.todo .actions a.edit {
+    color: #C09853;
+}
+
+.todo .actions a.delete {
+    color: #B94A48;
+}
+
+.todo .actions a {
+    display: block;
+    float: left;
+    margin: 3px;
+}
+
+#addTodoBtnWrapper {
+    text-align: center;
+}
+
+#addTodoBtn {
+    margin: 20px auto;
+}

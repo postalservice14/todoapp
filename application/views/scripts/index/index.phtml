@@ -1,0 +1,15 @@
+<ul class="todos ui-sortable well">
+    <?php foreach ($this->todos as $todo): /** @var TodoApp\Entity\Todo $todo */ ?>
+    <li id="todo-<?php echo $todo->getId(); ?>" class="todo">
+        <div class="text"><?php echo $todo->getName(); ?></div>
+        <div class="actions">
+            <a href="#" class="edit"><i class="icon-edit"></i> Edit</a>
+            <a href="#" class="delete"><i class="icon-trash"></i> Delete</a>
+        </div>
+    </li>
+    <?php endforeach; ?>
+</ul>
+
+<div id="addTodoBtnWrapper">
+    <button class="btn-large btn-success" id="addTodoBtn">Add a Todo</button>
+</div>
